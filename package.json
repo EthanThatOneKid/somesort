@@ -6,6 +6,7 @@
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.11",
     "@types/react-dom": "^16.9.1",
+    "node-sass": "^4.12.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-scripts": "3.2.0",
@@ -16,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint:fix": "eslint ./src/**/*.{ts,tsx}"
+    "lint:fix": "eslint ./src/**/*.{ts,tsx} --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
