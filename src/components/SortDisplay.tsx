@@ -15,7 +15,7 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
     return (
       <div className="sort-display">
         {this.props.list.getData().map((value, i) => {
-          return <Pipe value={value} index={i} />;
+          return <Pipe value={value} index={i} key={i} />;
         })}
       </div>
     );

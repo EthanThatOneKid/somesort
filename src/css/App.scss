@@ -1,3 +1,17 @@
+@import './variables.scss';
+
+@mixin fillFromTo ($prevHeight, $nextHeight) {
+    @keyframes reach {
+        from {
+            box-shadow: inset 0px (-1 * $prevHeight) $pipeFillColor;
+        }
+        to {
+            box-shadow: inset 0px (-1 * $nextHeight) $pipeFillColor;
+        }
+    }
+    animation: .6s cubic-bezier(.25, .25, .25, 1.15) both reach;
+}
+
 .App {
     text-align: center;
 }
@@ -7,5 +21,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@for $fromPercent from 0 through 100 {
+    $fromPx: (0.01 * $fromPercent * $pipeHeight);
+    @for $toPercent from 0 through 100 {
+        $toPx: (0.01 * $toPercent * $pipeHeight);
+        .pipe-#{$fromPercent}-#{$toPercent} {
+            height: $pipeHeight;
+            width: $pipeWidth;
+            border-radius: 5% 5% 0 0;
+            margin: 0.5px;
+            display: inline-block;
+            box-shadow: inset 0px $toPx $pipeFillColor;
+            @include fillFromTo($fromPx, $toPx);
+        }
+    }
 }
 
