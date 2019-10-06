@@ -2,7 +2,7 @@
 > A sorting algorithm visualizer with satisfying visuals
 
 ## Todo
-* Stuff
+* Integrate [this codepen](https://codepen.io/EthanDavidson/pen/GRRRyrw)
 
 ## Available Scripts
 In the project directory, you can run:
