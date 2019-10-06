@@ -37,7 +37,7 @@ class Pipe extends Component<PipeProps, PipeState> {
   render(): React.ReactNode {
     return (
       <div
-        className={`pipe-${this.state.prevValue}-${this.state.value}`}
+        className={`pipe-${this.state.value}`}
         key={this.props.index}
         onMouseMove={this.updateValue.bind(this)}
       >
