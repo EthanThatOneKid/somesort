@@ -8,41 +8,48 @@ type PipeProps = {
 type PipeState = {
   index: number;
   value: number;
-  prevValue: number;
 };
 
 class Pipe extends Component<PipeProps, PipeState> {
   state = {
     index: this.props.index,
-    value: this.props.value,
-    prevValue: 0
+    value: this.props.value
   };
 
-  updateValue({ nativeEvent: event }: any) {
-    const isPrimaryClick = event.buttons === 1;
+  mouseMoveListener(
+    reactEvent: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ): void {
+    // tslint:disable-next-line (@typescript-eslint/no-explicit-any)
+    const { nativeEvent: event }: any = reactEvent;
+    const isPrimaryClick = event !== null && event.buttons === 1;
     if (isPrimaryClick) {
       const targetHeight: number = event.target.clientHeight;
       const pxDistanceFromBottom: number = targetHeight - event.offsetY;
       const percentFromBottom: number = Math.floor(
         (100 * pxDistanceFromBottom) / targetHeight
       );
-      this.setState({
-        prevValue: this.state.value,
-        value: percentFromBottom
-      });
+      this.updateValue(percentFromBottom);
     }
     return;
+  }
+
+  updateValue(value: number): void {
+    this.setState({
+      value: Math.round(value)
+    });
+    return;
+  }
+
+  getValue(): number {
+    return this.state.value;
   }
 
   render(): React.ReactNode {
     return (
       <div
         className={`pipe-${this.state.value}`}
-        key={this.props.index}
-        onMouseMove={this.updateValue.bind(this)}
-      >
-        {/* {this.props.value} */}
-      </div>
+        onMouseMove={this.mouseMoveListener.bind(this)}
+      ></div>
     );
   }
 }
