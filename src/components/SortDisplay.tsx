@@ -17,6 +17,13 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
   };
 
   beginSortAnimation(sortFunction: (l: SortList) => void): void {
+    this.props.list.clearHistory();
+    this.props.list.updateData(
+      this.pipes.map((pipe: Pipe): number => {
+        return pipe.getValue();
+      })
+    );
+    console.log(this.props.list);
     const sortedList: SortList = this.props.list.clone();
     sortFunction(sortedList);
     const instructions: Array<Array<number>> = sortedList.getHistory();
@@ -24,7 +31,7 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
   }
 
   stepSortAnimation(instructions: Array<Array<number>>, interval = 1e3): void {
-    if (instructions.length - 1 > this.state.currentInstruction) {
+    if (instructions.length > this.state.currentInstruction) {
       const [i, j] = instructions[this.state.currentInstruction];
       const pipeA: Pipe = this.pipes[i];
       const pipeB: Pipe = this.pipes[j];
@@ -38,8 +45,8 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
         this.stepSortAnimation(instructions, interval);
       }, interval);
     } else {
-      console.log("DONE")
-      console.log(instructions)
+      console.log('DONE');
+      console.log(instructions);
     }
     return;
   }

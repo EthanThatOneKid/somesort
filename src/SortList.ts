@@ -46,10 +46,16 @@ export default class SortList {
     const temp: number = this.data[i];
     this.data[i] = this.data[j];
     this.data[j] = temp;
-    this.history.push([i, j]);
+    if (i !== j) {
+      this.history.push([i, j]);
+    }
   }
 
   toString(): string {
     return JSON.stringify(this.data, null, 2);
+  }
+
+  updateData(data: Array<number>): void {
+    this.data = [...data.slice(0, this.len)];
   }
 }

@@ -16,7 +16,7 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
   list: SortList = new SortList(10);
   state = {
     currentAlgorithm: this.props.algorithm
-  }
+  };
   setAlgorithm(name: string): void {
     this.setState({
       currentAlgorithm: name
@@ -34,8 +34,9 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
 
   executeSort(): void {
     if (this.display.current !== null) {
-      console.log(this.state.currentAlgorithm)
-      const sortFunction: (l: SortList) => void = algorithms[this.state.currentAlgorithm].sort;
+      console.log(this.state.currentAlgorithm);
+      const sortFunction: (l: SortList) => void =
+        algorithms[this.state.currentAlgorithm].sort;
       this.display.current.beginSortAnimation(sortFunction);
     }
     return;
@@ -50,7 +51,10 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
         <section>
           {Object.keys(algorithms).map((name: string) => {
             return (
-              <button onClick={() => this.onClickListener(name)}>
+              <button
+                key={name}
+                onClick={this.onClickListener.bind(this, name)}
+              >
                 {name}
               </button>
             );
