@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, RefObject } from 'react';
 import Pipe from './Pipe';
 import SortList from '../SortList';
 
@@ -12,22 +12,25 @@ type SortDisplayState = {
 
 class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
   pipes: Array<Pipe> = [];
+  containerRef: RefObject<HTMLDivElement> = React.createRef();
   state = {
     currentInstruction: 0
   };
 
-  beginSortAnimation(sortFunction: (l: SortList) => void): void {
+  beginSortAnimation(sortFunction: (l: SortList) => void, time: number = 10e3): void {
     this.props.list.clearHistory();
     this.props.list.updateData(
       this.pipes.map((pipe: Pipe): number => {
         return pipe.getValue();
       })
     );
-    console.log(this.props.list);
     const sortedList: SortList = this.props.list.clone();
     sortFunction(sortedList);
     const instructions: Array<Array<number>> = sortedList.getHistory();
-    this.stepSortAnimation(instructions, 1e3);
+    console.log({sortedList, instructions});
+    const interval: number = instructions.length / time;
+    this.toggleUserInput(false);
+    this.stepSortAnimation(instructions, interval);
   }
 
   stepSortAnimation(instructions: Array<Array<number>>, interval = 1e3): void {
@@ -46,7 +49,10 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
       }, interval);
     } else {
       console.log('DONE');
-      console.log(instructions);
+      this.setState({
+        currentInstruction: 0
+      });
+      this.toggleUserInput(true);
     }
     return;
   }
@@ -55,9 +61,24 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
     this.pipes[i] = el as Pipe;
   }
 
+  toggleUserInput(mayUseUserInput?: boolean): void {
+    const userInputClassName = "unselectable";
+    if (this.containerRef.current !== null) {
+      if (typeof mayUseUserInput === "undefined") {
+        this.containerRef.current.classList.toggle(userInputClassName);
+      } else {
+        if (mayUseUserInput) {
+          this.containerRef.current.classList.remove(userInputClassName);
+        } else {
+          this.containerRef.current.classList.add(userInputClassName);
+        }
+      }
+    }
+  }
+
   render(): React.ReactNode {
     return (
-      <div className="sort-display">
+      <div className="sort-display" ref={this.containerRef}>
         {this.props.list.getData().map((value, i) => {
           return (
             <Pipe

@@ -13,7 +13,7 @@ type SortPanelState = {
 
 class SortPanel extends Component<SortPanelProps, SortPanelState> {
   display: React.RefObject<SortDisplay> = React.createRef();
-  list: SortList = new SortList(10);
+  list: SortList = new SortList(100);
   state = {
     currentAlgorithm: this.props.algorithm
   };
@@ -34,7 +34,6 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
 
   executeSort(): void {
     if (this.display.current !== null) {
-      console.log(this.state.currentAlgorithm);
       const sortFunction: (l: SortList) => void =
         algorithms[this.state.currentAlgorithm].sort;
       this.display.current.beginSortAnimation(sortFunction);

@@ -11,6 +11,10 @@
     justify-content: center;
 }
 
+.unselectable {
+    pointer-events: none;
+}
+
 @for $toPercent from 0 through 100 {
     $toPx: (0.01 * $toPercent * $pipeHeight);
     .pipe-#{$toPercent} {
