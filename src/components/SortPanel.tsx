@@ -76,7 +76,9 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
           })}
         </section>
         <button onClick={this.onUndoClickListener.bind(this)}>Undo Sort</button>
-        <button onClick={this.onRandomizeClickListener.bind(this)}>Randomize</button>
+        <button onClick={this.onRandomizeClickListener.bind(this)}>
+          Randomize
+        </button>
       </div>
     );
   }

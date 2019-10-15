@@ -11,8 +11,8 @@ type SortDisplayState = {};
 class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
   pipes: Array<Pipe> = [];
   containerRef: RefObject<HTMLDivElement> = React.createRef();
-  currentInstruction: number = 0;
-  isAnimating: boolean = false;
+  currentInstruction = 0;
+  isAnimating = false;
 
   beginSortAnimation(sortFunction: (l: SortList) => void, time = 5e3): void {
     this.props.list.clearHistory();
@@ -33,7 +33,7 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
     this.stepSortAnimation(instructions, interval);
   }
 
-  stepSortAnimation(instructions: Array<Array<number>>, interval: number = 0): void {
+  stepSortAnimation(instructions: Array<Array<number>>, interval = 0): void {
     if (instructions.length > this.currentInstruction) {
       const [i, j] = instructions[this.currentInstruction];
       const pipeA: Pipe = this.pipes[i];
