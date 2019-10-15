@@ -1,6 +1,10 @@
 # Somesort 🧙‍
 > A sorting algorithm visualizer with satisfying visuals
 
+![language Typescript](https://img.shields.io/badge/language-Typescript-blue)
+![frontend React](https://img.shields.io/badge/frontend-React-blue)
+[![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20Sass-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/sass/sass)
+
 ## Todo 📅
 * Make a PerformanceSummary Class; each algorithm with own data
 * Make a PerformanceSummary Component; displays worst case, this case, best case, and ratio (%) of current to best cases.
