@@ -2,7 +2,8 @@
 > A sorting algorithm visualizer with satisfying visuals
 
 ## Todo
-* Integrate [this codepen](https://codepen.io/EthanDavidson/pen/GRRRyrw)
+* Make a PerformanceSummary Class; each algorithm with own data
+* Make a PerformanceSummary Component; displays worst case, this case, best case, and ratio (%) of current to best cases.
 
 ## Available Scripts
 In the project directory, you can run:
