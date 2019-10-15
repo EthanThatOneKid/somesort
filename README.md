@@ -5,6 +5,17 @@
 * Make a PerformanceSummary Class; each algorithm with own data
 * Make a PerformanceSummary Component; displays worst case, this case, best case, and ratio (%) of current to best cases.
 
+## Sorting Algorithms
+| **Name** | **Status** | **info** |
+|---|---|---|
+| [Quicksort](src/algorithms/quicksort.ts) | ✅ | [ℹ](https://en.wikipedia.org/wiki/Quicksort)
+| [Mergesort](src/algorithms/mergesort.ts) | ✅ | [ℹ](https://en.wikipedia.org/wiki/Merge_sort)
+| [Blocksort](src/algorithms/blocksort.ts) | ❌ | [ℹ](https://en.wikipedia.org/wiki/Block_sort)
+| [Radixsort](src/algorithms/radixsort.ts) | ❌ | [ℹ](https://en.wikipedia.org/wiki/Radix_sort#Most_significant_digit_radix_sorts)
+| [Selectionsort](src/algorithms/selectionsort.ts) | ❌ | [ℹ](https://en.wikipedia.org/wiki/Selection_sort)
+| [Shellsort](src/algorithms/shellsort.ts) | ❌ | [ℹ](https://en.wikipedia.org/wiki/Shellsort)
+| [Countingsort](src/algorithms/countingsort.ts) | ❌ | [ℹ](https://en.wikipedia.org/wiki/Counting_sort)
+ 
 ## Available Scripts
 In the project directory, you can run:
 
