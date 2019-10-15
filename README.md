@@ -2,7 +2,6 @@
 > A sorting algorithm visualizer with satisfying visuals
 
 ![Technologies](https://img.shields.io/badge/technologies-Typescript%20|%20React%20|%20Sass-blue)
-
 ![David](https://img.shields.io/david/EthanThatOneKid/somesort)
 ![David](https://img.shields.io/david/dev/EthanThatOneKid/somesort)
 
