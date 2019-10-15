@@ -17,7 +17,7 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
     currentInstruction: 0
   };
 
-  beginSortAnimation(sortFunction: (l: SortList) => void, time: number = 10e3): void {
+  beginSortAnimation(sortFunction: (l: SortList) => void, time = 10e3): void {
     this.props.list.clearHistory();
     this.props.list.updateData(
       this.pipes.map((pipe: Pipe): number => {
@@ -27,7 +27,6 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
     const sortedList: SortList = this.props.list.clone();
     sortFunction(sortedList);
     const instructions: Array<Array<number>> = sortedList.getHistory();
-    console.log({sortedList, instructions});
     const interval: number = instructions.length / time;
     this.toggleUserInput(false);
     this.stepSortAnimation(instructions, interval);
@@ -62,9 +61,9 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
   }
 
   toggleUserInput(mayUseUserInput?: boolean): void {
-    const userInputClassName = "unselectable";
+    const userInputClassName = 'unselectable';
     if (this.containerRef.current !== null) {
-      if (typeof mayUseUserInput === "undefined") {
+      if (typeof mayUseUserInput === 'undefined') {
         this.containerRef.current.classList.toggle(userInputClassName);
       } else {
         if (mayUseUserInput) {
