@@ -1,11 +1,11 @@
 # Somesort 🧙‍
 > A sorting algorithm visualizer with satisfying visuals
 
-## Todo
+## Todo 📅
 * Make a PerformanceSummary Class; each algorithm with own data
 * Make a PerformanceSummary Component; displays worst case, this case, best case, and ratio (%) of current to best cases.
 
-## Sorting Algorithms
+## Supportability 💣
 | **Name** | **Status** | **info** |
 |---|---|---|
 | [Quicksort](src/algorithms/quicksort.ts) | ✅ | [ℹ](https://en.wikipedia.org/wiki/Quicksort)
@@ -45,3 +45,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ## Learn More
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+---
+
+Engineered with 💖 by EthanThatOneKid
