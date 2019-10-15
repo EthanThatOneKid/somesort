@@ -1,8 +1,8 @@
 # Somesort 🧙‍
 > A sorting algorithm visualizer with satisfying visuals
 
-![language Typescript](https://img.shields.io/badge/language-Typescript-blue)
-![frontend React](https://img.shields.io/badge/frontend-React-blue)
+[![language Typescript](https://img.shields.io/badge/language-Typescript-blue)](https://img.shields.io/github/languages/top/EthanThatOneKid/somesort)
+[![frontend React](https://img.shields.io/badge/frontend-React-blue)](https://github.com/facebook/react)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20Sass-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/sass/sass)
 
 ## Todo 📅
