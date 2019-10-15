@@ -1,11 +1,13 @@
 export default class SortList {
   len: number;
   data: Array<number>;
+  steps: number;
   history: Array<Array<number>>;
   constructor(len: number) {
     this.len = Math.floor(len);
     this.data = [];
     this.history = [];
+    this.steps = 0;
     this.randomize();
   }
 

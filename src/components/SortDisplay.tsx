@@ -6,18 +6,15 @@ type SortDisplayProps = {
   list: SortList;
 };
 
-type SortDisplayState = {
-  currentInstruction: number;
-};
+type SortDisplayState = {};
 
 class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
   pipes: Array<Pipe> = [];
   containerRef: RefObject<HTMLDivElement> = React.createRef();
-  state = {
-    currentInstruction: 0
-  };
+  currentInstruction: number = 0;
+  isAnimating: boolean = false;
 
-  beginSortAnimation(sortFunction: (l: SortList) => void, time = 10e3): void {
+  beginSortAnimation(sortFunction: (l: SortList) => void, time = 5e3): void {
     this.props.list.clearHistory();
     this.props.list.updateData(
       this.pipes.map((pipe: Pipe): number => {
@@ -26,31 +23,31 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
     );
     const sortedList: SortList = this.props.list.clone();
     sortFunction(sortedList);
+    console.log({
+      before: this.props.list,
+      after: sortedList
+    });
     const instructions: Array<Array<number>> = sortedList.getHistory();
     const interval: number = instructions.length / time;
     this.toggleUserInput(false);
     this.stepSortAnimation(instructions, interval);
   }
 
-  stepSortAnimation(instructions: Array<Array<number>>, interval = 1e3): void {
-    if (instructions.length > this.state.currentInstruction) {
-      const [i, j] = instructions[this.state.currentInstruction];
+  stepSortAnimation(instructions: Array<Array<number>>, interval: number = 0): void {
+    if (instructions.length > this.currentInstruction) {
+      const [i, j] = instructions[this.currentInstruction];
       const pipeA: Pipe = this.pipes[i];
       const pipeB: Pipe = this.pipes[j];
       const tempValue: number = pipeA.getValue();
       pipeA.updateValue(pipeB.getValue());
       pipeB.updateValue(tempValue);
-      this.setState({
-        currentInstruction: this.state.currentInstruction + 1
-      });
+      this.currentInstruction++;
       setTimeout((): void => {
         this.stepSortAnimation(instructions, interval);
       }, interval);
     } else {
       console.log('DONE');
-      this.setState({
-        currentInstruction: 0
-      });
+      this.currentInstruction = 0;
       this.toggleUserInput(true);
     }
     return;
@@ -64,15 +61,25 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
     const userInputClassName = 'unselectable';
     if (this.containerRef.current !== null) {
       if (typeof mayUseUserInput === 'undefined') {
+        this.isAnimating = !this.isAnimating;
         this.containerRef.current.classList.toggle(userInputClassName);
       } else {
         if (mayUseUserInput) {
+          this.isAnimating = false;
           this.containerRef.current.classList.remove(userInputClassName);
         } else {
+          this.isAnimating = true;
           this.containerRef.current.classList.add(userInputClassName);
         }
       }
     }
+  }
+
+  undoRecentSort(): void {
+    this.pipes.forEach((pipe: Pipe, i: number) => {
+      const prevValue: number = this.props.list.at(i);
+      pipe.updateValue(prevValue);
+    });
   }
 
   render(): React.ReactNode {
