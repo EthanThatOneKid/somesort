@@ -10,7 +10,7 @@
 * Make a PerformanceSummary Component; displays worst case, this case, best case, and ratio (%) of current to best cases.
 
 ## Supportability 💣
-| **Name** | **Status** | **info** |
+| **Name** | **Status** | **Info** |
 |---|---|---|
 | [Quicksort](src/algorithms/quicksort.ts) | ✅ | [ℹ](https://en.wikipedia.org/wiki/Quicksort)
 | [Mergesort](src/algorithms/mergesort.ts) | ✅ | [ℹ](https://en.wikipedia.org/wiki/Merge_sort)
