@@ -4,6 +4,7 @@ const createPartition = (list: SortList, lo: number, hi: number): number => {
   const pivot: number = list.at(hi);
   let i: number = lo;
   while (lo < hi) {
+    list.step();
     if (list.at(lo) < pivot) {
       list.swap(i, lo);
       i++;

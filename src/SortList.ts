@@ -34,6 +34,10 @@ export default class SortList {
     return [...this.history];
   }
 
+  getSteps(): number {
+    return this.steps;
+  }
+
   log(): void {
     console.log([...this.data]);
   }
@@ -42,6 +46,14 @@ export default class SortList {
     this.data = new Array(this.len)
       .fill(0)
       .map((): number => Math.round(Math.random() * 100));
+  }
+
+  getSize() {
+    return this.data.length;
+  }
+
+  step(): void {
+    this.steps++;
   }
 
   swap(i: number, j: number): void {

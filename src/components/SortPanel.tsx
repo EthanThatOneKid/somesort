@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SortDisplay from './SortDisplay';
 import SortList from '../SortList';
 import algorithms from '../algorithms';
+import PerformanceSummary from '../PerformanceSummary';
 
 type SortPanelProps = {
   algorithm: string;
@@ -45,7 +46,13 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
     if (this.display.current !== null) {
       const sortFunction: (l: SortList) => void =
         algorithms[this.currentAlgorithm].sort;
-      this.display.current.beginSortAnimation(sortFunction);
+      this.display.current.beginSortAnimation(
+        sortFunction,
+        new PerformanceSummary(
+          algorithms[this.currentAlgorithm].best,
+          algorithms[this.currentAlgorithm].worst
+        )
+      );
     }
   }
 
