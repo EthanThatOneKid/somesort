@@ -3,7 +3,8 @@ import mergesort from './mergesort';
 import SortList from '../SortList';
 
 type Algorithm = {
-  info: string;
+  best: string,
+  worst: string,
   sort: (l: SortList) => void;
 };
 
@@ -13,11 +14,13 @@ interface AlgorithmMap {
 
 const algorithms: AlgorithmMap = {
   Quicksort: {
-    info: 'https://en.wikipedia.org/wiki/Quicksort',
+    best: "n log(n)",
+    worst: "n^2",
     sort: quicksort
   },
   Mergesort: {
-    info: 'https://en.wikipedia.org/wiki/Merge_sort',
+    best: "n log(n)",
+    worst: "n log(n)",
     sort: mergesort
   }
 };
