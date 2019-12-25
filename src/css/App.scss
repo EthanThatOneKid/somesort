@@ -17,12 +17,13 @@
 
 @for $toPercent from 0 through 100 {
     $toPx: (0.01 * $toPercent * $pipeHeight);
+    $fillColor: hsl(0.01 * $toPercent * 360, 100%, 50%);
     .pipe-#{$toPercent} {
         height: $pipeHeight;
         width: $pipeWidth;
         margin: 0.5px;
         display: inline-block;
-        box-shadow: inset 0px (-1 * $toPx) $pipeFillColor;
+        box-shadow: inset 0px (-1 * $toPx) $fillColor;
         transition: box-shadow .1s cubic-bezier(.25, .25, .25, 1.15);
     }
 }
