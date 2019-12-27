@@ -1,6 +1,7 @@
+import SortList from '../SortList';
 import quicksort from './quicksort';
 import mergesort from './mergesort';
-import SortList from '../SortList';
+import selectionsort from './selectionsort';
 
 type Algorithm = {
   best: string;
@@ -22,6 +23,11 @@ const algorithms: AlgorithmMap = {
     best: 'n log(n)',
     worst: 'n log(n)',
     sort: mergesort
+  },
+  Selectionsort: {
+    best: 'n^2',
+    worst: 'n^2',
+    sort: selectionsort
   }
 };
 
