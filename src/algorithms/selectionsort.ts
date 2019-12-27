@@ -9,7 +9,7 @@ const selectionsort = (list: SortList): void => {
         min = j;
       }
     }
-    if (min != i) {
+    if (min !== i) {
       list.swap(i, min);
     }
   }
