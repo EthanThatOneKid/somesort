@@ -6,6 +6,8 @@
 ![David](https://img.shields.io/david/dev/EthanThatOneKid/somesort)
 
 ## Todo 📅
+* List size input: [line 15](src/components/SortPanel.tsx)
+* Speed input: [line 37](src/components/SortDisplay.tsx)
 * Make a PerformanceSummary Class; each algorithm with own data
 * Make a PerformanceSummary Component; displays worst case, this case, best case, and ratio (%) of current to best cases.
 
