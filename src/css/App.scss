@@ -15,15 +15,26 @@
     pointer-events: none;
 }
 
+.pipe-container {
+    height: $pipeHeight;
+    width: $pipeWidth;
+    margin: 2px;
+    padding: 10px 2px 10px 2px;
+    border-radius: 2px;
+    display: inline-block;
+    box-shadow:
+        2px 2px 2px 0 rgba(0, 0, 0, 0.2), // Dark Underside
+        -2px -2px 2px 0 rgba(255, 255, 255, 0.03) // Light Upside
+}
+
 @for $toPercent from 0 through 100 {
     $toPx: (0.01 * $toPercent * $pipeHeight);
     $fillColor: hsl(0.01 * $toPercent * 360, 100%, 50%);
     .pipe-#{$toPercent} {
-        height: $pipeHeight;
-        width: $pipeWidth;
-        margin: 0.5px;
-        display: inline-block;
         box-shadow: inset 0px (-1 * $toPx) $fillColor;
+        margin: 0 auto;
+        height: 100%;
+        width: 1px;
         transition: box-shadow .1s cubic-bezier(.25, .25, .25, 1.15);
     }
 }

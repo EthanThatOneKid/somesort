@@ -47,9 +47,11 @@ class Pipe extends Component<PipeProps, PipeState> {
   render(): React.ReactNode {
     return (
       <div
-        className={`pipe-${this.state.value}`}
+        className="pipe-container"
         onMouseMove={this.mouseMoveListener.bind(this)}
-      ></div>
+      >
+        <div className={`pipe-${this.state.value}`}></div>
+      </div>
     );
   }
 }
