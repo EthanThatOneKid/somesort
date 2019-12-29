@@ -48,7 +48,7 @@ export default class SortList {
       .map((): number => Math.round(Math.random() * 100));
   }
 
-  getSize() {
+  getSize(): number {
     return this.data.length;
   }
 
