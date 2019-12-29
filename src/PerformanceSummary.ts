@@ -22,7 +22,7 @@ export default class PerformanceSummary {
     const worst = this.worstCase(dataSize);
     const best = this.bestCase(dataSize);
     const discrepancy = worst - best;
-    console.log({dataSize, actualComplexity, worst, best, discrepancy})
+    console.log({ dataSize, actualComplexity, worst, best, discrepancy });
     return Math.abs((actualComplexity - discrepancy) / discrepancy);
   }
 }
