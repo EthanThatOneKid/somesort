@@ -3,6 +3,7 @@ import quicksort from './quicksort';
 import mergesort from './mergesort';
 import selectionsort from './selectionsort';
 import bubblesort from './bubblesort';
+import combsort from './combsort';
 
 type Algorithm = {
   best: string;
@@ -34,6 +35,11 @@ const algorithms: AlgorithmMap = {
     best: 'n',
     worst: 'n^2',
     sort: bubblesort
+  },
+  Combsort: {
+    best: 'n log(n)',
+    worst: 'n^2',
+    sort: combsort
   }
 };
 
