@@ -5,7 +5,7 @@ import './css/App.scss';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">Somesort</header>
+      <header className="app-header">Somesort</header>
       <section>
         <SortPanel algorithm="Quicksort" />
       </section>

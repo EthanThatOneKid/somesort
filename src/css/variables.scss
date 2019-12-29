@@ -3,3 +3,16 @@ $pipeEmptyColor: white;
 $pipeHeight: 200px;
 $pipeWidth: 10px;
 $pipeStartHeight: (0.5 * $pipeHeight);
+$fontColor: rgb(201, 201, 201);
+
+@mixin neumorphic($strength) {
+    box-shadow:
+        inset (-1 * $strength) (-1 * $strength) $strength 0 rgba(0, 0, 0, 0.2), // Dark Underside
+        inset $strength $strength $strength 0 rgba(255, 255, 255, 0.03) // Light Upside
+}
+
+@mixin neumorphic-inverse($strength) {
+    box-shadow:
+        $strength $strength $strength 0 rgba(0, 0, 0, 0.2), // Dark Underside
+        (-1 * $strength) (-1 * $strength) $strength 0 rgba(255, 255, 255, 0.03) // Light Upside
+}

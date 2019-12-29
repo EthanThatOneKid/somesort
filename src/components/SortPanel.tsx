@@ -12,7 +12,7 @@ type SortPanelState = {};
 
 class SortPanel extends Component<SortPanelProps, SortPanelState> {
   display: React.RefObject<SortDisplay> = React.createRef();
-  list: SortList = new SortList(100);
+  list: SortList = new SortList(40);
   currentAlgorithm: string = this.props.algorithm;
 
   onRandomizeClickListener(): void {
@@ -68,26 +68,35 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
   render(): React.ReactNode {
     return (
       <div className="sort-panel">
-        <section>
+        <section className="sort-display-container">
           <SortDisplay list={this.list} ref={this.display} />
         </section>
-        <section>
-          {Object.keys(algorithms).map((name: string) => {
-            return (
-              <button
-                key={name}
-                onClick={this.onSortClickListener.bind(this, name)}
-                title={name}
-              >
-                {name}
-              </button>
-            );
-          })}
+        <section className="buttons-container">
+          <label>Sorting Algorithms:</label>
+          <section className="sorting-algorithms">
+            {Object.keys(algorithms).map((name: string) => {
+              return (
+                <button
+                  key={name}
+                  onClick={this.onSortClickListener.bind(this, name)}
+                  title={name}
+                >
+                  {name}
+                </button>
+              );
+            })}
+          </section>
+          <br />
+          <label>Options:</label>
+          <section className="sorting-options">
+            <button onClick={this.onUndoClickListener.bind(this)}>
+              Undo Sort
+            </button>
+            <button onClick={this.onRandomizeClickListener.bind(this)}>
+              Randomize
+            </button>
+          </section>
         </section>
-        <button onClick={this.onUndoClickListener.bind(this)}>Undo Sort</button>
-        <button onClick={this.onRandomizeClickListener.bind(this)}>
-          Randomize
-        </button>
       </div>
     );
   }
