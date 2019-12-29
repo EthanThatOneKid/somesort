@@ -26,6 +26,7 @@ const mergesort = (list: SortList, l = 0, r: number = list.len - 1): void => {
     mergesort(list, l, m);
     mergesort(list, m + 1, r);
     merge(list, l, m, r);
+    list.step();
   }
 };
 
