@@ -27,7 +27,7 @@
     margin: 0 auto;
     padding: 50px;
     border-radius: 10px;
-    width: 75vw;
+    width: max-content;
     @include neumorphic(5px);
 }
 
