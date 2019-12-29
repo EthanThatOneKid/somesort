@@ -20,6 +20,10 @@
 | [Shellsort](src/algorithms/shellsort.ts) | ❌ | [ℹ](https://en.wikipedia.org/wiki/Shellsort)
 | [Countingsort](src/algorithms/countingsort.ts) | ❌ | [ℹ](https://en.wikipedia.org/wiki/Counting_sort)
 | [Bubblesort](src/algorithms/bubblesort.ts) | ✅ | [ℹ](https://en.wikipedia.org/wiki/Bubble_sort)
+| [Combsort](src/algorithms/combsort.ts) | ✅ | [ℹ](https://en.wikipedia.org/wiki/Comb_sort)
+| [Gnomesort](src/algorithms/gnomesort.ts) | ❌ | [ℹ](https://en.wikipedia.org/wiki/Gnome_sort)
+| [Slowsort](src/algorithms/slowsort.ts) | ❌ | [ℹ](https://en.wikipedia.org/wiki/Slowsort)
+| [Stoogesort](src/algorithms/stoogesort.ts) | ❌ | [ℹ](https://en.wikipedia.org/wiki/Stooge_sort)
  
 ## Available Scripts
 In the project directory, you can run:
