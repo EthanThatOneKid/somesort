@@ -19,6 +19,7 @@
 | [Selectionsort](src/algorithms/selectionsort.ts) | ✅ | [ℹ](https://en.wikipedia.org/wiki/Selection_sort)
 | [Shellsort](src/algorithms/shellsort.ts) | ❌ | [ℹ](https://en.wikipedia.org/wiki/Shellsort)
 | [Countingsort](src/algorithms/countingsort.ts) | ❌ | [ℹ](https://en.wikipedia.org/wiki/Counting_sort)
+| [Bubblesort](src/algorithms/bubblesort.ts) | ❌ | [ℹ](https://en.wikipedia.org/wiki/Bubble_sort)
  
 ## Available Scripts
 In the project directory, you can run:
