@@ -17,8 +17,10 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
 
   onRandomizeClickListener(): void {
     if (this.display.current !== null) {
-      this.list.randomize();
-      this.display.current.undoRecentSort();
+      if (!this.display.current.isAnimating) {
+        this.list.randomize();
+        this.display.current.undoRecentSort();
+      }
     }
   }
 
