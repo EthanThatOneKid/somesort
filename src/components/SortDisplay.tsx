@@ -1,7 +1,6 @@
 import React, { Component, RefObject } from 'react';
 import Pipe from './Pipe';
 import SortList from '../SortList';
-import PerformanceSummary from '../PerformanceSummary';
 
 type SortDisplayProps = {
   list: SortList;
@@ -15,11 +14,7 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
   currentInstruction = 0;
   isAnimating = false;
 
-  beginSortAnimation(
-    sortFunction: (l: SortList) => void,
-    perf: PerformanceSummary,
-    time = 5e3
-  ): void {
+  beginSortAnimation(sortFunction: (l: SortList) => void, time = 5e3): void {
     this.props.list.clearHistory();
     this.props.list.updateData(
       this.pipes.map((pipe: Pipe): number => {
@@ -33,7 +28,6 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
       after: sortedList
     });
     const instructions: Array<Array<number>> = sortedList.getHistory();
-    console.log(perf.summarize(sortedList.getSize(), sortedList.getSteps()));
     const interval: number = instructions.length / time;
     this.toggleUserInput(false);
     this.stepSortAnimation(instructions, interval);
@@ -61,6 +55,10 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
 
   setPipeRef(el: Pipe | null, i: number): void {
     this.pipes[i] = el as Pipe;
+  }
+
+  flushList(): void {
+    this.pipes = this.pipes.slice(0, this.props.list.getSize());
   }
 
   toggleUserInput(mayUseUserInput?: boolean): void {

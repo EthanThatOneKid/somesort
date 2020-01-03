@@ -75,4 +75,7 @@
     .sorting-options button {
         @include neumorphic-inverse(5px);
     }
+    .list-size-input {
+        transform: rotate(90deg);
+    }
 }

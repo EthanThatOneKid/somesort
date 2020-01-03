@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import SortDisplay from './SortDisplay';
 import SortList from '../SortList';
 import algorithms from '../algorithms';
-import PerformanceSummary from '../PerformanceSummary';
 
 type SortPanelProps = {
   algorithm: string;
 };
 
-type SortPanelState = {};
+type SortPanelState = {
+  listSize: number;
+  sortSpeed: number;
+};
 
 class SortPanel extends Component<SortPanelProps, SortPanelState> {
   display: React.RefObject<SortDisplay> = React.createRef();
@@ -21,6 +23,19 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
         this.list.randomize();
         this.display.current.undoRecentSort();
       }
+    }
+  }
+
+  onResizeListener(event: React.FormEvent<HTMLInputElement>): void {
+    const nextSize = Number(event.currentTarget.value);
+    const isProductiveResize = this.list.resize(nextSize);
+    if (isProductiveResize) {
+      this.setState({ listSize: nextSize });
+      setTimeout(() => {
+        if (this.display.current !== null) {
+          this.display.current.flushList();
+        }
+      }, 0);
     }
   }
 
@@ -48,13 +63,7 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
     if (this.display.current !== null) {
       const sortFunction: (l: SortList) => void =
         algorithms[this.currentAlgorithm].sort;
-      this.display.current.beginSortAnimation(
-        sortFunction,
-        new PerformanceSummary(
-          algorithms[this.currentAlgorithm].best,
-          algorithms[this.currentAlgorithm].worst
-        )
-      );
+      this.display.current.beginSortAnimation(sortFunction);
     }
   }
 
@@ -95,6 +104,11 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
             <button onClick={this.onRandomizeClickListener.bind(this)}>
               Randomize
             </button>
+            <input
+              className="list-size-input"
+              type="range"
+              onInput={this.onResizeListener.bind(this)}
+            ></input>
           </section>
         </section>
       </div>

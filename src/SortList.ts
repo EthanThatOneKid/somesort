@@ -3,11 +3,17 @@ export default class SortList {
   data: Array<number>;
   steps: number;
   history: Array<Array<number>>;
-  constructor(len: number) {
+  minSize: number;
+  maxSize: number;
+  speedFactor: number;
+  constructor(len: number, minSize = 10, maxSize = 100) {
     this.len = Math.floor(len);
     this.data = [];
     this.history = [];
     this.steps = 0;
+    this.speedFactor = 1;
+    this.minSize = minSize;
+    this.maxSize = maxSize;
     this.randomize();
   }
 
@@ -50,6 +56,23 @@ export default class SortList {
 
   getSize(): number {
     return this.data.length;
+  }
+
+  resize(next: number): boolean {
+    if (next < this.maxSize && next > this.minSize) {
+      next = Math.floor(next);
+      if (next > this.data.length) {
+        for (let i = this.data.length; i < next; i++) {
+          this.data.push(Math.floor(Math.random() * 100));
+        }
+      } else if (next < this.data.length) {
+        this.data = this.data.slice(0, next);
+      }
+      this.len = next;
+      return true;
+    }
+    console.log(this.data.length);
+    return false;
   }
 
   step(): void {
