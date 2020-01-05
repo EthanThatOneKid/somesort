@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SortDisplay from './SortDisplay';
 import SortList from '../SortList';
 import algorithms from '../algorithms';
+import Dial from './Dial';
 
 type SortPanelProps = {
   algorithm: string;
@@ -37,6 +38,10 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
         }
       }, 0);
     }
+  }
+
+  onDialChange(dialValue: number): void {
+    console.log(dialValue);
   }
 
   onSortClickListener(
@@ -109,6 +114,16 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
               type="range"
               onInput={this.onResizeListener.bind(this)}
             ></input>
+            <Dial
+              value={100}
+              strokes={12}
+              sensitivity={2}
+              diameter={100}
+              valueFactor={20}
+              minValue={0}
+              maxValue={100}
+              onChange={this.onDialChange}
+            />
           </section>
         </section>
       </div>
