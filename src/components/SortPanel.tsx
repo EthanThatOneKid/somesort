@@ -10,11 +10,11 @@ type SortPanelProps = {
 
 type SortPanelState = {
   listSize: number;
-  sortSpeed: number;
 };
 
 class SortPanel extends Component<SortPanelProps, SortPanelState> {
   display: React.RefObject<SortDisplay> = React.createRef();
+  sizeDialRef: React.RefObject<Dial> = React.createRef();
   list: SortList = new SortList(40);
   currentAlgorithm: string = this.props.algorithm;
 
@@ -27,8 +27,7 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
     }
   }
 
-  onResizeListener(event: React.FormEvent<HTMLInputElement>): void {
-    const nextSize = Number(event.currentTarget.value);
+  onResizeListener(nextSize: number): void {
     const isProductiveResize = this.list.resize(nextSize);
     if (isProductiveResize) {
       this.setState({ listSize: nextSize });
@@ -41,18 +40,29 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
   }
 
   onDialChange(dialValue: number): void {
-    console.log(dialValue);
+    if (this.display.current !== null) {
+      this.display.current.setSortSpeed(dialValue);
+    }
   }
 
-  onSortClickListener(
-    // event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-    name: string
-  ): void {
+  onSortClickListener(name: string): void {
     if (this.display.current !== null) {
       if (!this.display.current.isAnimating) {
         this.currentAlgorithm = name;
         this.executeSort();
       }
+    }
+  }
+
+  onCancelListener(): void {
+    if (this.display.current !== null) {
+      this.display.current.cancelSortAnimation();
+    }
+  }
+
+  onSortCompleteListener(): void {
+    if (this.sizeDialRef.current !== null) {
+      this.sizeDialRef.current.toggleInteraction(true);
     }
   }
 
@@ -68,6 +78,9 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
     if (this.display.current !== null) {
       const sortFunction: (l: SortList) => void =
         algorithms[this.currentAlgorithm].sort;
+      if (this.sizeDialRef.current !== null) {
+        this.sizeDialRef.current.toggleInteraction(false);
+      }
       this.display.current.beginSortAnimation(sortFunction);
     }
   }
@@ -83,11 +96,15 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
     return (
       <div className="sort-panel">
         <section className="sort-display-container">
-          <SortDisplay list={this.list} ref={this.display} />
+          <SortDisplay
+            list={this.list}
+            ref={this.display}
+            onSortComplete={this.onSortCompleteListener.bind(this)}
+          />
         </section>
         <section className="buttons-container">
-          <label>Sorting Algorithms:</label>
           <section className="sorting-algorithms">
+            <label>Sorting Algorithms:</label>
             {Object.keys(algorithms).map((name: string) => {
               return (
                 <button
@@ -101,19 +118,19 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
             })}
           </section>
           <br />
-          <label>Options:</label>
           <section className="sorting-options">
+            <label>Options:</label>
             <button onClick={this.onUndoClickListener.bind(this)}>
               Undo Sort
             </button>
             <button onClick={this.onRandomizeClickListener.bind(this)}>
               Randomize
             </button>
-            <input
-              className="list-size-input"
-              type="range"
-              onInput={this.onResizeListener.bind(this)}
-            ></input>
+            <button onClick={this.onCancelListener.bind(this)}>Cancel</button>
+          </section>
+          <br />
+          <section className="speed-option-container">
+            <label>Speed:</label>
             <Dial
               value={100}
               strokes={12}
@@ -122,7 +139,21 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
               valueFactor={20}
               minValue={0}
               maxValue={100}
-              onChange={this.onDialChange}
+              onChange={this.onDialChange.bind(this)}
+            />
+          </section>
+          <section className="size-option-container">
+            <label>Size:</label>
+            <Dial
+              value={40}
+              strokes={12}
+              sensitivity={2}
+              diameter={100}
+              valueFactor={20}
+              minValue={10}
+              maxValue={100}
+              ref={this.sizeDialRef}
+              onChange={this.onResizeListener.bind(this)}
             />
           </section>
         </section>

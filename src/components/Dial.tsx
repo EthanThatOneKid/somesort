@@ -16,11 +16,13 @@ type DialState = {};
 class Dial extends Component<DialProps, DialState> {
   value = this.props.value * this.props.valueFactor || 0;
   prevAngle = 0;
+  isInteractable = true;
   valueFactor = this.props.valueFactor || 1;
   strokeRefs: Array<RefObject<HTMLDivElement>> = Array(this.props.strokes)
     .fill(0)
     .map(() => React.createRef());
   valueRef: RefObject<HTMLDivElement> = React.createRef();
+  containerRef: RefObject<HTMLDivElement> = React.createRef();
 
   mouseMoveListener(
     reactEvent: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -28,7 +30,7 @@ class Dial extends Component<DialProps, DialState> {
     // tslint:disable-next-line (@typescript-eslint/no-explicit-any)
     const { nativeEvent: event }: any = reactEvent;
     const isPrimaryClick = event !== null && event.buttons === 1;
-    if (isPrimaryClick) {
+    if (isPrimaryClick && this.isInteractable) {
       const isBeyond180: boolean =
         event.target.offsetWidth - event.offsetX >
         0.5 * event.target.offsetWidth;
@@ -78,9 +80,28 @@ class Dial extends Component<DialProps, DialState> {
     return Math.floor(value / this.valueFactor);
   }
 
+  toggleInteraction(isOn?: boolean): boolean {
+    this.isInteractable = isOn === undefined ? !this.isInteractable : isOn;
+    const userInputClassName = 'unselectable';
+    if (this.isInteractable) {
+      if (this.containerRef.current !== null) {
+        this.containerRef.current.classList.remove(userInputClassName);
+      }
+    } else {
+      if (this.containerRef.current !== null) {
+        this.containerRef.current.classList.add(userInputClassName);
+      }
+    }
+    return this.isInteractable;
+  }
+
   render(): React.ReactNode {
     return (
-      <div className="dial" onMouseMove={this.mouseMoveListener.bind(this)}>
+      <div
+        className="dial"
+        onMouseMove={this.mouseMoveListener.bind(this)}
+        ref={this.containerRef}
+      >
         {this.strokeRefs.map((_, i) => {
           return (
             <div className="dial-stroke" key={i} ref={this.strokeRefs[i]}></div>

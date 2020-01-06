@@ -71,7 +71,6 @@ export default class SortList {
       this.len = next;
       return true;
     }
-    console.log(this.data.length);
     return false;
   }
 

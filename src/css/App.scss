@@ -22,6 +22,7 @@
 
 .unselectable {
     pointer-events: none;
+    cursor: not-allowed;
 }
 
 .sort-panel {
@@ -75,9 +76,5 @@
     }
     .sorting-options button {
         @include neumorphic-inverse(5px);
-    }
-    .list-size-input {
-        border: 1px solid white;
-        // Note: Make this into a number input
     }
 }

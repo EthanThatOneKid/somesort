@@ -4,6 +4,7 @@ import SortList from '../SortList';
 
 type SortDisplayProps = {
   list: SortList;
+  onSortComplete: () => void;
 };
 
 type SortDisplayState = {};
@@ -12,9 +13,11 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
   pipes: Array<Pipe> = [];
   containerRef: RefObject<HTMLDivElement> = React.createRef();
   currentInstruction = 0;
+  sortSpeedFactor = 0;
   isAnimating = false;
+  isRequestingCancel = false;
 
-  beginSortAnimation(sortFunction: (l: SortList) => void, time = 5e3): void {
+  beginSortAnimation(sortFunction: (l: SortList) => void): void {
     this.props.list.clearHistory();
     this.props.list.updateData(
       this.pipes.map((pipe: Pipe): number => {
@@ -23,18 +26,22 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
     );
     const sortedList: SortList = this.props.list.clone();
     sortFunction(sortedList);
-    console.log({
-      before: this.props.list,
-      after: sortedList
-    });
     const instructions: Array<Array<number>> = sortedList.getHistory();
-    const interval: number = instructions.length / time;
     this.toggleUserInput(false);
-    this.stepSortAnimation(instructions, interval);
+    this.stepSortAnimation(instructions);
   }
 
-  stepSortAnimation(instructions: Array<Array<number>>, interval = 0): void {
-    if (instructions.length > this.currentInstruction) {
+  cancelSortAnimation(): void {
+    if (this.isAnimating) {
+      this.isRequestingCancel = true;
+    }
+  }
+
+  stepSortAnimation(instructions: Array<Array<number>>): void {
+    if (
+      instructions.length > this.currentInstruction &&
+      !this.isRequestingCancel
+    ) {
       const [i, j] = instructions[this.currentInstruction];
       const pipeA: Pipe = this.pipes[i];
       const pipeB: Pipe = this.pipes[j];
@@ -42,13 +49,18 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
       pipeA.updateValue(pipeB.getValue());
       pipeB.updateValue(tempValue);
       this.currentInstruction++;
+      const interval: number = this.sortSpeedFactor * 1e3;
       setTimeout((): void => {
-        this.stepSortAnimation(instructions, interval);
+        this.stepSortAnimation(instructions);
       }, interval);
     } else {
-      console.log('DONE');
       this.currentInstruction = 0;
       this.toggleUserInput(true);
+      if (this.isRequestingCancel) {
+        this.flushList();
+        this.isRequestingCancel = false;
+      }
+      this.props.onSortComplete();
     }
     return;
   }
@@ -57,8 +69,15 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
     this.pipes[i] = el as Pipe;
   }
 
+  setSortSpeed(sortSpeed: number): void {
+    // Desmos function: y=-\left(\frac{x}{100}\right)^{7}+1
+    this.sortSpeedFactor = -1 * Math.pow(sortSpeed / 100, 0.5) + 1;
+    console.log(sortSpeed, this.sortSpeedFactor);
+  }
+
   flushList(): void {
     this.pipes = this.pipes.slice(0, this.props.list.getSize());
+    this.props.list.updateData(this.pipes.map(pipe => pipe.getValue()));
   }
 
   toggleUserInput(mayUseUserInput?: boolean): void {
