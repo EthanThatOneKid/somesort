@@ -1,15 +1,12 @@
 # Somesort 🧙‍
-> A sorting algorithm visualizer with satisfying visuals
+> A sorting algorithm visualizer with satisfying ui/ux
 
 ![Technologies](https://img.shields.io/badge/technologies-Typescript%20|%20React%20|%20Sass-blue)
 ![David](https://img.shields.io/david/EthanThatOneKid/somesort)
 ![David](https://img.shields.io/david/dev/EthanThatOneKid/somesort)
 
 ## Todo 📅
-* List size input: [line 15](src/components/SortPanel.tsx)
-* Speed input: [line 37](src/components/SortDisplay.tsx)
-* Make a PerformanceSummary Class; each algorithm with own data
-* Make a PerformanceSummary Component; displays worst case, this case, best case, and ratio (%) of current to best cases.
+* Future optimizations/feature ideas
 
 ## Supportability 💣
 | **Name** | **Status** | **Info** |

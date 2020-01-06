@@ -1,7 +1,12 @@
 {
   "name": "somesort",
   "version": "0.1.0",
+  "author": "EthanThatOneKid",
   "homepage": "http://ethanthatonekid.github.io/somesort",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ethanthatonekid/somesort.git"
+  },
   "private": true,
   "dependencies": {
     "@types/jest": "^24.0.18",
@@ -46,5 +51,8 @@
     "eslint-plugin-prettier": "^3.1.1",
     "gh-pages": "^2.1.1",
     "prettier": "^1.18.2"
+  },
+  "bugs": {
+    "url": "https://github.com/ethanthatonekid/somesort/issues"
   }
 }
