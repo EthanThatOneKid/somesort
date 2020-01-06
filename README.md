@@ -1,9 +1,10 @@
-# Somesort 🧙‍
+# Somesort 🧙‍ [▶][homepage]
 > A sorting algorithm visualizer with satisfying ui/ux
 
-![Technologies](https://img.shields.io/badge/technologies-Typescript%20|%20React%20|%20Sass-blue)
-![David](https://img.shields.io/david/EthanThatOneKid/somesort)
-![David](https://img.shields.io/david/dev/EthanThatOneKid/somesort)
+[![Technologies](https://img.shields.io/badge/technologies-Typescript%20|%20React%20|%20Sass-blue)][homepage]
+[![Dependency Vulnerability](https://img.shields.io/david/EthanThatOneKid/somesort)][package]
+[![Dev-Dependency Vulnerability](https://img.shields.io/david/dev/EthanThatOneKid/somesort)][package]
+[![Code Size](https://img.shields.io/github/languages/code-size/ethanthatonekid/somesort)][homepage]
 
 ## Todo 📅
 * Future optimizations/feature ideas
@@ -60,3 +61,6 @@ Run `npm run predeploy` and then run `npm run deploy`. All this given that the d
 ---
 
 Engineered with 💖 by EthanThatOneKid
+
+[homepage]: https://ethanthatonekid.github.io/somesort/
+[package]: package.json
