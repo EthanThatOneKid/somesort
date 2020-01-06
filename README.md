@@ -1,5 +1,5 @@
-# Somesort 🧙‍ [▶][homepage]
-> A sorting algorithm visualizer with satisfying ui/ux
+# Somesort 🧙‍
+> A sorting algorithm visualizer with satisfying ui/ux [▶ visit demo][homepage]
 
 [![Technologies](https://img.shields.io/badge/technologies-Typescript%20|%20React%20|%20Sass-blue)][homepage]
 [![Dependency Vulnerability](https://img.shields.io/david/EthanThatOneKid/somesort)][package]
@@ -61,6 +61,7 @@ Run `npm run predeploy` and then run `npm run deploy`. All this given that the d
 ---
 
 Engineered with 💖 by EthanThatOneKid
+[![Buy me a coffee](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](http://buymeacoff.ee/etok)
 
 [homepage]: https://ethanthatonekid.github.io/somesort/
 [package]: package.json
