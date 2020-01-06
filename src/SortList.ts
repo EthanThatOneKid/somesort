@@ -26,7 +26,7 @@ export default class SortList {
   }
 
   clone(): SortList {
-    const clone: SortList = new SortList(this.len);
+    const clone: SortList = new SortList(this.len, this.minSize, this.maxSize);
     clone.data = [...this.data];
     clone.history = [...this.history];
     return clone;
