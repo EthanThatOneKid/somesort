@@ -7,7 +7,9 @@
 [![Dev-Dependency Vulnerability](https://img.shields.io/david/dev/EthanThatOneKid/somesort)][package]
 
 ## [▶ Visit Demo][homepage]
+
 ## Todo 📅
+* Allow dial values to be adjusted via input[type=number] field
 * Future optimizations/feature ideas
 
 ## Supportability 💣
