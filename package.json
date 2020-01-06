@@ -1,6 +1,7 @@
 {
   "name": "somesort",
   "version": "0.1.0",
+  "homepage": "http://ethanthatonekid.github.io/somesort",
   "private": true,
   "dependencies": {
     "@types/jest": "^24.0.18",
@@ -17,6 +18,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "lint:fix": "eslint ./src/**/*.{ts,tsx} --fix"
   },
   "eslintConfig": {
@@ -41,6 +44,7 @@
     "eslint-config-prettier": "^6.4.0",
     "eslint-config-react": "^1.1.7",
     "eslint-plugin-prettier": "^3.1.1",
+    "gh-pages": "^2.1.1",
     "prettier": "^1.18.2"
   }
 }
