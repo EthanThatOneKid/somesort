@@ -42,13 +42,12 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
       instructions.length > this.currentInstruction &&
       !this.isRequestingCancel
     ) {
-      const [i, j] = instructions[this.currentInstruction];
+      const [i, j] = instructions[this.currentInstruction++];
       const pipeA: Pipe = this.pipes[i];
       const pipeB: Pipe = this.pipes[j];
       const tempValue: number = pipeA.getValue();
       pipeA.updateValue(pipeB.getValue());
       pipeB.updateValue(tempValue);
-      this.currentInstruction++;
       const interval: number = this.sortSpeedFactor * 1e3;
       setTimeout((): void => {
         this.stepSortAnimation(instructions);
@@ -70,9 +69,8 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
   }
 
   setSortSpeed(sortSpeed: number): void {
-    // Desmos function: y=-\left(\frac{x}{100}\right)^{7}+1
+    // Desmos function: y=-\left(\frac{x}{100}\right)^{\frac{1}{2}}+1
     this.sortSpeedFactor = -1 * Math.pow(sortSpeed / 100, 0.5) + 1;
-    console.log(sortSpeed, this.sortSpeedFactor);
   }
 
   flushList(): void {
