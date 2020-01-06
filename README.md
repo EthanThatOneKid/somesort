@@ -2,11 +2,11 @@
 > A sorting algorithm visualizer with satisfying ui/ux
 
 [![Technologies](https://img.shields.io/badge/technologies-Typescript%20|%20React%20|%20Sass-blue)][homepage]
+[![Code Size](https://img.shields.io/github/languages/code-size/ethanthatonekid/somesort)][homepage]
 [![Dependency Vulnerability](https://img.shields.io/david/EthanThatOneKid/somesort)][package]
 [![Dev-Dependency Vulnerability](https://img.shields.io/david/dev/EthanThatOneKid/somesort)][package]
-[![Code Size](https://img.shields.io/github/languages/code-size/ethanthatonekid/somesort)][homepage]
 
-## [▶ Visit Demo 😊][homepage]
+## [▶ Visit Demo][homepage]
 ## Todo 📅
 * Future optimizations/feature ideas
 
