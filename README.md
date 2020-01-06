@@ -1,6 +1,5 @@
-# Somesort 🧙‍
+# Somesort 🧙‍ <sub>[▶ visit demo][homepage]</sub>
 > A sorting algorithm visualizer with satisfying ui/ux
-> [▶ visit demo][homepage]
 
 [![Technologies](https://img.shields.io/badge/technologies-Typescript%20|%20React%20|%20Sass-blue)][homepage]
 [![Dependency Vulnerability](https://img.shields.io/david/EthanThatOneKid/somesort)][package]
