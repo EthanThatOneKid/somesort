@@ -104,7 +104,9 @@ class Dial extends Component<DialProps, DialState> {
       >
         {this.strokeRefs.map((_, i) => {
           return (
-            <div className="dial-stroke" key={i} ref={this.strokeRefs[i]}></div>
+            <div className="dial-stroke" key={i} ref={this.strokeRefs[i]}>
+              <div className={`dial-stroke-content-${i + 1}`}></div>
+            </div>
           );
         })}
         <div className="dial-value" ref={this.valueRef}>

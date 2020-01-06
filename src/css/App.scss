@@ -77,4 +77,7 @@
     .sorting-options button {
         @include neumorphic-inverse(5px);
     }
+    .speed-option-container {
+        margin-right: 10%;
+    }
 }

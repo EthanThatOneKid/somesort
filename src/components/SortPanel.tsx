@@ -104,7 +104,7 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
         </section>
         <section className="buttons-container">
           <section className="sorting-algorithms">
-            <label>Sorting Algorithms:</label>
+            <label>Sorting Algorithms:&nbsp;&nbsp;</label>
             {Object.keys(algorithms).map((name: string) => {
               return (
                 <button
@@ -119,7 +119,7 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
           </section>
           <br />
           <section className="sorting-options">
-            <label>Options:</label>
+            <label>Options:&nbsp;&nbsp;</label>
             <button onClick={this.onUndoClickListener.bind(this)}>
               Undo Sort
             </button>
