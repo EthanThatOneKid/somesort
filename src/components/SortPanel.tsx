@@ -152,8 +152,8 @@ class SortPanel extends Component<SortPanelProps, SortPanelState> {
               valueFactor={20}
               minValue={10}
               maxValue={100}
-              ref={this.sizeDialRef}
               onChange={this.onResizeListener.bind(this)}
+              ref={this.sizeDialRef}
             />
           </section>
         </section>
