@@ -62,6 +62,7 @@ Run `npm run predeploy` and then run `npm run deploy`. All this given that the d
 ---
 
 Engineered with 💖 by EthanThatOneKid
+<br />
 [![Buy me a coffee](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](http://buymeacoff.ee/etok)
 
 [homepage]: https://ethanthatonekid.github.io/somesort/
