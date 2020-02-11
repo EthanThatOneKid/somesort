@@ -10,6 +10,7 @@
 
 ## Todo 📅
 * Allow dial values to be adjusted via input[type=number] field
+* Infinite random activity
 * Future optimizations/feature ideas
 
 ## Supportability 💣
