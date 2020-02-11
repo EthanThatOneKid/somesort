@@ -6,11 +6,38 @@
     text-align: center;
     color: $fontColor;
     font-family: 'Nunito', sans-serif;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .app-header {
-    font-size: 2em;
-    margin: 25px auto;
+    font-size: 4em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 0 0 0.1em;
+}
+
+.app-footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 0.5em 0 0;
+
+    a {
+        color: $fontColor;
+    }
+}
+
+.mobile-card {
+    width: 75vw;
+
+    a {
+        color: $fontColor;
+    }
 }
 
 .center {
