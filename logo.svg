@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-custom_1">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="custom_1" data-name="custom – 1" clip-path="url(#clip-custom_1)">
+    <g id="Group_1" data-name="Group 1" transform="translate(14.987 57.825) rotate(-30)">
+      <line id="Line_1" data-name="Line 1" x2="68.469" transform="translate(0 6.132)" fill="none" stroke="#ff00a8" stroke-linecap="round" stroke-width="3"/>
+      <line id="Line_3" data-name="Line 3" x2="43.943" transform="translate(12.263 0)" fill="none" stroke="#00c2ff" stroke-linecap="round" stroke-width="3"/>
+      <line id="Line_2" data-name="Line 2" x2="68.469" transform="translate(0 15.329)" fill="none" stroke="#00cf91" stroke-linecap="round" stroke-width="3"/>
+      <line id="Line_4" data-name="Line 4" x2="43.943" transform="translate(12.263 21.461)" fill="none" stroke="#e9d200" stroke-linecap="round" stroke-width="3"/>
+    </g>
+    <path id="Union_1" data-name="Union 1" d="M0,73.579,24.527,49.052A24.527,24.527,0,1,1,0,73.579ZM0,24.527a24.526,24.526,0,1,1,49.052,0L24.527,49.052A24.526,24.526,0,0,1,0,24.527Z" transform="matrix(0.966, 0.259, -0.259, 0.966, 39.005, -3.729)" fill="none" stroke="#343434" stroke-linejoin="round" stroke-width="3"/>
+  </g>
+</svg>
