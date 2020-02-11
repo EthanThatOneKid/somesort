@@ -29,7 +29,7 @@
 | [Stoogesort](src/algorithms/stoogesort.ts) | ❌ | [ℹ](https://en.wikipedia.org/wiki/Stooge_sort)
 
 ## About 💄
-This webapp was created as design experiment and a datastructures/algorithms challenge. There are multiple instances of ux design components, such as the dials and list display, that require custom event handling. The name *Somesort* was derrived from the mere fact that this project is a *sort*-ing visualizer with *some* variety of sorting algorithms. The source for these sorting algorithms are neatly organized in the [`algorithms` directory](algorithms). This project utilizes skillful design techniques and mastery of algorithmic implementation.
+This webapp was created as a design experiment and a datastructures/algorithms challenge. There are multiple instances of ux design components, such as the dials and list display, that require custom event handling. The name *Somesort* was derrived from the mere fact that this project is a *sort*-ing visualizer with *some* variety of sorting algorithms. The source for these sorting algorithms are neatly organized in the [`algorithms` directory](algorithms). This project utilizes skillful design techniques and mastery of algorithm-implementation as well as proficiency and eloquence in TypeScript, ReactJS, and Sass.
  
 ## Available Scripts
 In the project directory, you can run:
