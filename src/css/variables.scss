@@ -4,6 +4,7 @@ $pipeHeight: 200px;
 $pipeWidth: 10px;
 $pipeStartHeight: (0.5 * $pipeHeight);
 $fontColor: rgb(201, 201, 201);
+$fontFamily: 'Nunito', sans-serif;
 
 @mixin neumorphic($strength) {
     box-shadow:

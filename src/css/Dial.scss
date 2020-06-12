@@ -8,12 +8,23 @@
   position: relative;
   @include neumorphic(5px);
   
-  .dial-value {
+  .dial-value-container {
     z-index: -10;
     text-align: center;
     position: absolute;
     width: 100%;
     top: ($size / 2) - 10px;
+
+    .dial-value {
+      z-index: 0;
+      width: 100%;
+      padding-left: 7px;
+      text-align: center;
+      border: none;
+      background: none;
+      font-family: $fontFamily;
+      color: $fontColor;
+    }
   }
   
   .dial-stroke {

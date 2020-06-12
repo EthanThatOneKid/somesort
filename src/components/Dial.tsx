@@ -21,7 +21,7 @@ class Dial extends Component<DialProps, DialState> {
   strokeRefs: Array<RefObject<HTMLDivElement>> = Array(this.props.strokes)
     .fill(0)
     .map(() => React.createRef());
-  valueRef: RefObject<HTMLDivElement> = React.createRef();
+  valueRef: RefObject<HTMLInputElement> = React.createRef();
   containerRef: RefObject<HTMLDivElement> = React.createRef();
 
   pointerMoveListener(
@@ -61,7 +61,7 @@ class Dial extends Component<DialProps, DialState> {
             }
           });
           if (this.valueRef.current !== null) {
-            this.valueRef.current.textContent = String(displayValue);
+            this.valueRef.current.value = String(displayValue);
           }
           this.props.onChange(displayValue);
         }
@@ -79,6 +79,11 @@ class Dial extends Component<DialProps, DialState> {
 
   calculateDisplayValue(value: number): number {
     return Math.floor(value / this.valueFactor);
+  }
+
+  updateDisplayValue(event: React.ChangeEvent<HTMLInputElement>): void {
+    const displayValue = Number(event.target.value);
+    this.value = displayValue * this.valueFactor;
   }
 
   toggleInteraction(isOn?: boolean): boolean {
@@ -110,8 +115,17 @@ class Dial extends Component<DialProps, DialState> {
             </div>
           );
         })}
-        <div className="dial-value" ref={this.valueRef}>
-          {this.calculateDisplayValue(this.value)}
+        <div className="dial-value-container">
+          <input
+            ref={this.valueRef}
+            className="dial-value"
+            type="number"
+            min={this.props.minValue}
+            max={this.props.maxValue}
+            step={1}
+            value={this.calculateDisplayValue(this.value)}
+            onChange={this.updateDisplayValue.bind(this)}
+          />
         </div>
       </div>
     );
