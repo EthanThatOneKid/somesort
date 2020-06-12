@@ -72,8 +72,9 @@ class Dial extends Component<DialProps, DialState> {
 
   createTransformationCss(strokeIndex: number): string {
     const angle: number = (360 * strokeIndex) / this.props.strokes + this.value;
-    return `rotate(${angle}deg) translate(${this.props.diameter /
-      3}px) rotate(90deg)`;
+    return `rotate(${angle}deg) translate(${
+      this.props.diameter / 3
+    }px) rotate(90deg)`;
   }
 
   calculateDisplayValue(value: number): number {

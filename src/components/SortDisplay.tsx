@@ -75,7 +75,7 @@ class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
 
   flushList(): void {
     this.pipes = this.pipes.slice(0, this.props.list.getSize());
-    this.props.list.updateData(this.pipes.map(pipe => pipe.getValue()));
+    this.props.list.updateData(this.pipes.map((pipe) => pipe.getValue()));
   }
 
   toggleUserInput(mayUseUserInput?: boolean): void {

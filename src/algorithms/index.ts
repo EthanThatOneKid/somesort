@@ -19,28 +19,28 @@ const algorithms: AlgorithmMap = {
   Quicksort: {
     best: 'n log(n)',
     worst: 'n^2',
-    sort: quicksort
+    sort: quicksort,
   },
   Mergesort: {
     best: 'n log(n)',
     worst: 'n log(n)',
-    sort: mergesort
+    sort: mergesort,
   },
   Selectionsort: {
     best: 'n^2',
     worst: 'n^2',
-    sort: selectionsort
+    sort: selectionsort,
   },
   Bubblesort: {
     best: 'n',
     worst: 'n^2',
-    sort: bubblesort
+    sort: bubblesort,
   },
   Combsort: {
     best: 'n log(n)',
     worst: 'n^2',
-    sort: combsort
-  }
+    sort: combsort,
+  },
 };
 
 export default algorithms;

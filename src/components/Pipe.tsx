@@ -13,7 +13,7 @@ type PipeState = {
 class Pipe extends Component<PipeProps, PipeState> {
   state = {
     index: this.props.index,
-    value: this.props.value
+    value: this.props.value,
   };
 
   mouseMoveListener(
@@ -35,7 +35,7 @@ class Pipe extends Component<PipeProps, PipeState> {
 
   updateValue(value: number): void {
     this.setState({
-      value: Math.round(value)
+      value: Math.round(value),
     });
     return;
   }
