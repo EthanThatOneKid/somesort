@@ -66,6 +66,11 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ## Deploying as GitHub Page 🌐
 Run `npm run predeploy` to build the distribution branch and then run `npm run deploy` to publish it.
 
+## Somesort Logo 📷
+Designed and exported in [Adobe XD](https://www.adobe.com/products/xd.html).
+
+[![Somesort Logo](public/logo.svg)](public/logo.svg)
+
 ---
 
 [![Buy me a coffee](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](http://buymeacoff.ee/etok)
