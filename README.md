@@ -1,17 +1,12 @@
 # Somesort 🧙‍
-> A sorting algorithm visualizer with satisfying ui/ux
+> A sorting algorithm visualizer with satisfying UI/UX
 
 [![Technologies](https://img.shields.io/badge/technologies-Typescript%20|%20React%20|%20Sass-blue)][homepage]
 [![Code Size](https://img.shields.io/github/languages/code-size/ethanthatonekid/somesort)][homepage]
 [![Dependency Vulnerability](https://img.shields.io/david/EthanThatOneKid/somesort)][package]
 [![Dev-Dependency Vulnerability](https://img.shields.io/david/dev/EthanThatOneKid/somesort)][package]
 
-## [▶ Visit Demo][homepage]
-
-## Todo 📅
-* Allow dial values to be adjusted via input[type=number] field
-* Infinite random activity
-* Future optimizations/feature ideas
+## ▶ [Visit Demo][homepage]
 
 ## Supportability 💣
 | **Name** | **Status** | **Info** |
@@ -30,10 +25,13 @@
 | [Stoogesort](src/algorithms/stoogesort.ts) | ❌ | [ℹ](https://en.wikipedia.org/wiki/Stooge_sort)
 
 ## About 💄
-This webapp was created as a design experiment and a datastructures/algorithms challenge. There are multiple instances of ux design components, such as the dials and list display, that require custom event handling. The name *Somesort* was derrived from the mere fact that this project is a *sort*-ing visualizer with *some* variety of sorting algorithms. The source for these sorting algorithms are neatly organized in the [`algorithms` directory](algorithms). This project utilizes skillful design techniques and mastery of algorithm-implementation as well as proficiency and eloquence in TypeScript, ReactJS, and Sass.
+This web-app was created as a design experiment and a datastructures/algorithms challenge. There are multiple instances of UX design components, such as the dials and list display, that require custom event handling. The name *Somesort* was derrived from the mere fact that this project is a *sort*-ing visualizer with *some* variety of sorting algorithms. The source for these sorting algorithms are neatly organized in the [`algorithms` directory](src/algorithms). This project utilizes skillful design techniques and mastery of algorithm-implementation as well as proficiency and eloquence in TypeScript, ReactJS, and Sass.
 
 ## Todo ✅
-* Implement sorts from [this video](https://www.youtube.com/watch?v=LOZTuMds3LM)
+* Implement sorting algorithms from [this video](https://www.youtube.com/watch?v=LOZTuMds3LM)
+* Allow dial values to be adjusted via input[type=number] field
+* Infinite random activity
+* Future optimizations/feature ideas
  
 ## Available Scripts
 In the project directory, you can run:
@@ -66,13 +64,13 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## Deploying as GitHub Page
-Run `npm run predeploy` and then run `npm run deploy`. All this given that the dev dependency `gh-pages` is installed.
+Run `npm run predeploy` to build the distrobution branch and then run `npm run deploy` to publish it.
 
 ---
 
-Engineered with 💖 by EthanThatOneKid
-<br />
 [![Buy me a coffee](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](http://buymeacoff.ee/etok)
+
+Engineered with 💖 by EthanThatOneKid
 
 [homepage]: https://ethanthatonekid.github.io/somesort/
 [package]: package.json
