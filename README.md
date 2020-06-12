@@ -64,7 +64,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## Deploying as GitHub Page 🌐
-Run `npm run predeploy` to build the distrobution branch and then run `npm run deploy` to publish it.
+Run `npm run predeploy` to build the distribution branch and then run `npm run deploy` to publish it.
 
 ---
 
