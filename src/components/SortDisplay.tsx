@@ -7,7 +7,7 @@ type SortDisplayProps = {
   onSortComplete: () => void;
 };
 
-type SortDisplayState = {};
+type SortDisplayState = Record<string, unknown>;
 
 class SortDisplay extends Component<SortDisplayProps, SortDisplayState> {
   pipes: Array<Pipe> = [];
