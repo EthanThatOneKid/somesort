@@ -11,7 +11,7 @@ type DialProps = {
   onChange: (n: number) => void;
 };
 
-type DialState = {};
+type DialState = Record<string, unknown>;
 
 class Dial extends Component<DialProps, DialState> {
   value = this.props.value * this.props.valueFactor || 0;
@@ -24,7 +24,7 @@ class Dial extends Component<DialProps, DialState> {
   valueRef: RefObject<HTMLDivElement> = React.createRef();
   containerRef: RefObject<HTMLDivElement> = React.createRef();
 
-  mouseMoveListener(
+  pointerMoveListener(
     reactEvent: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): void {
     // tslint:disable-next-line (@typescript-eslint/no-explicit-any)
@@ -100,7 +100,7 @@ class Dial extends Component<DialProps, DialState> {
     return (
       <div
         className="dial"
-        onMouseMove={this.mouseMoveListener.bind(this)}
+        onPointerMove={this.pointerMoveListener.bind(this)}
         ref={this.containerRef}
       >
         {this.strokeRefs.map((_, i) => {
