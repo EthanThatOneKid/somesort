@@ -24,7 +24,7 @@
 | [Slowsort](src/algorithms/slowsort.ts) | ❌ | [ℹ](https://en.wikipedia.org/wiki/Slowsort)
 | [Stoogesort](src/algorithms/stoogesort.ts) | ❌ | [ℹ](https://en.wikipedia.org/wiki/Stooge_sort)
 
-## About 💄
+## About 🙏
 This web-app was created as a design experiment and a datastructures/algorithms challenge. There are multiple instances of UX design components, such as the dials and list display, that require custom event handling. The name *Somesort* was derrived from the mere fact that this project is a *sort*-ing visualizer with *some* variety of sorting algorithms. The source for these sorting algorithms are neatly organized in the [`algorithms` directory](src/algorithms). This project utilizes skillful design techniques and mastery of algorithm-implementation as well as proficiency and eloquence in TypeScript, ReactJS, and Sass.
 
 ## Todo ✅
